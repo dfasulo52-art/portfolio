@@ -1,7 +1,0 @@
-[build]
-  command = "npm run build"
-  publish = "dist/header/browser"
-
-[build.environment]
-  # Disabilita l'iniezione automatica del badge di Netlify
-  NETLIFY_BUILD_DISABLE_BADGE = "true"

@@ -179,12 +179,3 @@ body.theme-win98 .code-card code,
 body.theme-win98 .code-card span {
   color: #000000 !important;
 }
-/* Nasconde il badge "Powered by Netlify" */
-iframe[id^="netlify-badge"], 
-div[id^="netlify"], 
-a[href*="netlify.com"] {
-  display: none !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-  visibility: hidden !important;
-}
