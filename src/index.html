@@ -9,5 +9,24 @@
 </head>
 <body>
   <app-root></app-root>
+
+  <script>
+    // Monitora continuamente il DOM per eliminare il badge non appena compare
+    const observer = new MutationObserver((mutations, obs) => {
+      const netlifyBadge = document.querySelector('a[href*="netlify.com/internal/link"]');
+      const badgeContainer = document.querySelector('div[style*="z-index"][style*="position: fixed"]');
+
+      if (netlifyBadge) {
+        const parent = netlifyBadge.closest('div') || netlifyBadge.parentElement;
+        if (parent) parent.remove();
+        obs.disconnect();
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  </script>
 </body>
 </html>
