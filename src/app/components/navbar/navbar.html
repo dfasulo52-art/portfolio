@@ -13,8 +13,12 @@
 
     <div class="navbar-actions">
 
+      <!-- Selettore di tema con etichetta esplicativa -->
       <div class="theme-switcher">
-        <select (change)="setTheme($event)" [value]="currentTheme">
+        <label for="theme-select" class="theme-label">
+          <i class="fa-solid fa-palette"></i> <span>Tema:</span>
+        </label>
+        <select id="theme-select" (change)="setTheme($event)" [value]="currentTheme" title="Scegli lo stile grafico del sito">
           <option value="theme-win98">Windows 98</option>
           <option value="theme-material">Material Glass</option>
           <option value="theme-dark">Dark Mode</option>

@@ -138,7 +138,7 @@ export class SkillsComponent {
       description: [
         'Acquisizione di una solida preparazione teorica, algoritmica e logica (148 CFU conseguiti su 180).'
       ],
-      tags: ['Algoritmi', 'Strutture Dati', '148 CFU']
+      tags: ['Algoritmi', 'Strutture Dati','Poo','sicurezza informatica','analisi matematiche','unity', '148 CFU']
     },
     {
       period: 'Diploma — Voto: 99/100',
@@ -155,7 +155,7 @@ export class SkillsComponent {
   skillCategories: SkillCategory[] = [
     {
       title: 'Sviluppo & Linguaggi',
-      skills: ['Java (OOP)', 'C / C++ (Avanzato)', 'Python & Scripting', 'JavaScript / TypeScript', 'HTML5 & CSS3', 'SQL']
+      skills: ['Java (OOP)', 'C / C++ (Avanzato)', 'Python & Scripting', 'JavaScript / TypeScript', 'HTML5 & CSS3', 'SQL','Git & GitHub']
     },
     {
       title: 'Test Automation & QA',
@@ -171,7 +171,7 @@ export class SkillsComponent {
     },
     {
       title: 'Hardware & Strumenti',
-      skills: ['Diagnosi HW/SW', 'Saldatura su Scheda Madre', 'Git & GitHub']
+      skills: ['Diagnosi HW/SW', 'Saldatura su Scheda Madre', 'DottorPhone']
     }
   ];
 
