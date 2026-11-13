@@ -1,0 +1,35 @@
+<header class="navbar">
+  <div class="navbar-container">
+
+    <div class="logo">
+      <a href="#">&lt;df/&gt; </a>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#skills">CV & Skills</a>
+      <a href="#progetti">Progetti</a>
+      <a href="#su-di-me">Su di me</a>
+    </nav>
+
+    <div class="navbar-actions">
+
+      <div class="theme-switcher">
+        <select (change)="setTheme($event)" [value]="currentTheme">
+          <option value="theme-win98">Windows 98</option>
+          <option value="theme-material">Material Glass</option>
+          <option value="theme-dark">Dark Mode</option>
+          <option value="theme-macos">macOS</option>
+        </select>
+      </div>
+
+      <a
+        href="/cv.pdf"
+        target="_blank"
+        download="CV_Davide_Fasulo.pdf"
+        class="btn-cv">
+        CV PDF
+      </a>
+
+    </div>
+  </div>
+</header>

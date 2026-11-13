@@ -1,0 +1,72 @@
+<section class="hero-section">
+  <div class="hero-container">
+    
+    <div class="hero-content">
+      <span class="hero-badge">Full Stack & QA Software Tester</span>
+      <h1 class="hero-title">Ciao, sono <span class="highlight">Davide Fasulo</span></h1>
+      <p class="hero-subtitle">
+        Sviluppo applicazioni web moderne e performanti, unendo la scrittura di codice scalabile 
+        (Spring Boot, Angular, Node.js) a competenze avanzate di controllo qualità e testing.
+      </p>
+
+      <div class="tech-stack-preview">
+        <span class="tech-tag">Java / Spring Boot</span>
+        <span class="tech-tag">Angular</span>
+        <span class="tech-tag">SQL</span>
+        <span class="tech-tag">C / C++</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Unity</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#progetti" class="btn btn-primary">Esplora Progetti</a>
+        <button (click)="openContactModal()" class="btn btn-secondary">Contattami</button>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="code-card card">
+        <div class="code-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="code-title">davide.config.ts</span>
+        </div>
+        <pre><code>
+<span class="keyword">const</span> <span class="variable">developer</span> = &#123;
+  name: <span class="string">'Davide Fasulo'</span>,
+  role: <span class="string">'Full Stack & QA'</span>,
+  focus: [<span class="string">'Web Apps'</span>, <span class="string">'Testing'</span>, <span class="string">'Databases'</span>],
+  status: <span class="boolean">true</span>
+&#125;;
+        </code></pre>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="modal-overlay" *ngIf="isModalOpen" (click)="closeContactModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h3>Contattami</h3>
+    <p>Scegli come metterti in contatto con me:</p>
+    
+    <div class="contact-options">
+      <a href="https://www.linkedin.com/in/davide-fasulo-3661b0382" target="_blank" class="contact-card">
+        <strong>LinkedIn</strong>
+        <span>Visita il mio profilo</span>
+      </a>
+
+      <a href="https://github.com/dfasulo52-art" target="_blank" class="contact-card">
+        <strong>GitHub</strong>
+        <span>Esplora i miei repository</span>
+      </a>
+
+      <a [href]="getMailLink()" class="contact-card">
+        <strong>Email</strong>
+        <span>dfasulo52@gmail.com</span>
+      </a>
+    </div>
+    <button (click)="closeContactModal()" class="btn-close">Chiudi</button>
+  </div>
+</div>

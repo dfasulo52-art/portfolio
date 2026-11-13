@@ -1,0 +1,126 @@
+<section class="skills-section">
+  <div class="skills-container">
+    
+    <!-- Intestazione sezione -->
+    <div class="section-header">
+      <h2 class="section-title">Curriculum & Competenze</h2>
+      <p class="section-subtitle">
+        Il mio percorso tra sviluppo software, infrastrutture IT, diagnostica hardware ed esperienze sul campo.
+      </p>
+    </div>
+
+    <div class="cv-layout">
+      
+      <!-- COLONNA TIMELINE INTERATTIVA -->
+      <div class="timeline-wrapper card-box">
+        <div class="timeline-controls">
+          <button 
+            class="tab-btn" 
+            [class.active]="activeTab === 'esperienze'" 
+            (click)="setTab('esperienze')">
+            Esperienze Lavorative
+          </button>
+          <button 
+            class="tab-btn" 
+            [class.active]="activeTab === 'formazione'" 
+            (click)="setTab('formazione')">
+            Formazione & Studi
+          </button>
+        </div>
+
+        <!-- Lista Timeline Esperienze -->
+        <div class="timeline" *ngIf="activeTab === 'esperienze'">
+          <div class="timeline-item" *ngFor="let item of experiences; let i = index" [style.animation-delay]="(i * 0.08) + 's'">
+            <div class="timeline-dot" [class.pulse]="item.isCurrent"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <span class="timeline-period">{{ item.period }}</span>
+                <span class="timeline-badge current" *ngIf="item.isCurrent">Attuale</span>
+              </div>
+              <h3 class="timeline-role">{{ item.role }}</h3>
+              <h4 class="timeline-company">
+                {{ item.company }} <span *ngIf="item.location">• {{ item.location }}</span>
+              </h4>
+              <ul class="timeline-desc">
+                <li *ngFor="let desc of item.description">{{ desc }}</li>
+              </ul>
+              <div class="timeline-tags" *ngIf="item.tags">
+                <span class="mini-tag" *ngFor="let tag of item.tags">{{ tag }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lista Timeline Formazione -->
+        <div class="timeline" *ngIf="activeTab === 'formazione'">
+          <div class="timeline-item" *ngFor="let item of education; let i = index" [style.animation-delay]="(i * 0.08) + 's'">
+            <div class="timeline-dot" [class.pulse]="item.isCurrent"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <span class="timeline-period">{{ item.period }}</span>
+                <span class="timeline-badge current" *ngIf="item.isCurrent">In Corso</span>
+              </div>
+              <h3 class="timeline-role">{{ item.role }}</h3>
+              <h4 class="timeline-company">
+                {{ item.company }} <span *ngIf="item.location">• {{ item.location }}</span>
+              </h4>
+              <ul class="timeline-desc">
+                <li *ngFor="let desc of item.description">{{ desc }}</li>
+              </ul>
+              <div class="timeline-tags" *ngIf="item.tags">
+                <span class="mini-tag" *ngFor="let tag of item.tags">{{ tag }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLONNA COMPETENZE, SISTEMI & CERTIFICAZIONI -->
+      <div class="skills-sidebar">
+        
+        <!-- Categorie Tech Stack & Reti -->
+        <div class="card-box skills-card">
+          <h3 class="box-title">Tech Stack, Sistemi & Reti</h3>
+          <div class="skill-groups">
+            <div class="skill-group" *ngFor="let cat of skillCategories">
+              <h4 class="group-title">{{ cat.title }}</h4>
+              <div class="badges-container">
+                <span class="skill-badge" *ngFor="let skill of cat.skills">{{ skill }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificazioni -->
+        <div class="card-box certs-card">
+          <h3 class="box-title">Certificazioni & Lingue</h3>
+          <div class="cert-list">
+            <div class="cert-item" *ngFor="let cert of certifications">
+              <div class="cert-icon">{{ cert.badge }}</div>
+              <div class="cert-info">
+                <strong>{{ cert.name }}</strong>
+                <span>{{ cert.issuer }}</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon">IT</div>
+              <div class="cert-info">
+                <strong>Italiano</strong>
+                <span>Madrelingua</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="card-box soft-card">
+          <h3 class="box-title">Soft Skills</h3>
+          <div class="badges-container">
+            <span class="skill-badge soft" *ngFor="let soft of softSkills">{{ soft }}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

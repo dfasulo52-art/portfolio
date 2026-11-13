@@ -1,1 +1,181 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==========================================
+   0. RESET GLOBALE
+   ========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+app-root {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+/* ==========================================
+   1. TEMA WINDOWS 98
+   ========================================== */
+
+body.theme-win98 {
+  --bg-color: #008080;
+  --text-color: #000;
+  --text-primary: #000;
+  --text-secondary: #222;
+  --primary-color: #000080;
+  --card-bg: #c0c0c0;
+  --border-radius: 0px;
+  --box-shadow:
+    inset 1px 1px #fff,
+    inset -1px -1px #0a0a0a,
+    2px 2px 0 #000;
+
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* ==========================================
+   2. TEMA MATERIAL GLASS
+   ========================================== */
+
+body.theme-material {
+  --bg-color: #0f172a;
+  --text-color: #f8fafc;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --primary-color: #38bdf8;
+  --card-bg: rgba(30, 41, 59, 0.65);
+  --border-radius: 16px;
+  --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+
+  font-family: 'Roboto', sans-serif;
+}
+
+body.theme-material .card,
+body.theme-material .code-card,
+body.theme-material .modal-content,
+body.theme-material .navbar {
+  background: rgba(30, 41, 59, 0.5) !important;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================
+   3. TEMA DARK
+   ========================================== */
+
+body.theme-dark {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --primary-color: #bb86fc;
+  --card-bg: #1e1e1e;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================
+   4. TEMA MACOS
+   ========================================== */
+
+body.theme-macos {
+  --bg-color: #f5f5f7;
+  --text-color: #1d1d1f;
+  --text-primary: #1d1d1f;
+  --text-secondary: #515154;
+  --primary-color: #0066cc;
+  --card-bg: #fff;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================
+   5. CARD E COMPONENTI GLOBALI
+   ========================================== */
+
+.card-box,
+.timeline-content {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color, rgba(128, 128, 128, 0.25));
+}
+
+/* ==========================================
+   6. TESTI GLOBALI
+   ========================================== */
+
+.section-title,
+.box-title,
+.timeline-role,
+.cert-info strong {
+  color: var(--text-primary) !important;
+}
+
+.section-subtitle,
+.timeline-company,
+.timeline-desc,
+.group-title,
+.cert-info span {
+  color: var(--text-secondary) !important;
+}
+
+/* ==========================================
+   7. CORREZIONI WINDOWS 98
+   ========================================== */
+
+body.theme-win98 .card-box,
+body.theme-win98 .timeline-content,
+body.theme-win98 .timeline-role,
+body.theme-win98 .box-title,
+body.theme-win98 .cert-info strong {
+  color: #000 !important;
+}
+
+body.theme-win98 .timeline-company,
+body.theme-win98 .timeline-desc,
+body.theme-win98 .group-title,
+body.theme-win98 .cert-info span {
+  color: #222 !important;
+}
+
+/* ==========================================
+   8. RESPONSIVE GLOBALE
+   ========================================== */
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 80px;
+  }
+}
+/* Forzatura testo nero SOLO nel riquadro codice e SOLO con il tema Windows 98 */
+body.theme-win98 .code-card,
+body.theme-win98 .code-card *,
+body.theme-win98 .code-card pre,
+body.theme-win98 .code-card code,
+body.theme-win98 .code-card span {
+  color: #000000 !important;
+}

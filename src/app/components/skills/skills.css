@@ -1,0 +1,406 @@
+.skills-section {
+  padding: 5rem 1.5rem;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Griglia principale a 2 colonne */
+.cv-layout {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Stile base Card adattabile ai temi */
+.card-box {
+  background: var(--card-bg, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--border-color, rgba(128, 128, 128, 0.25));
+  border-radius: var(--border-radius, 12px);
+  padding: 1.75rem;
+  box-shadow: var(--card-shadow, 0 8px 24px rgba(0, 0, 0, 0.12));
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Pulsanti Tab Timeline */
+.timeline-controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color, rgba(128, 128, 128, 0.25));
+  padding-bottom: 1rem;
+}
+
+.tab-btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--border-radius, 8px);
+  border: 1px solid var(--border-color, rgba(128, 128, 128, 0.3));
+  background: transparent;
+  color: var(--text-secondary);
+  transition: all 0.25s ease;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-color, #3b82f6);
+}
+
+.tab-btn.active {
+  background: var(--accent-color, #3b82f6);
+  color: #ffffff;
+  border-color: var(--accent-color, #3b82f6);
+}
+
+/* TIMELINE ANIMATA */
+.timeline {
+  position: relative;
+  padding-left: 1.75rem;
+  border-left: 2px solid var(--accent-color, #3b82f6);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeSlideUp 0.45s ease forwards;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2.2rem;
+  top: 0.35rem;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--accent-color, #3b82f6);
+  border: 3px solid var(--bg-color);
+  transition: transform 0.2s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.25);
+}
+
+/* Effetto pulse discreto per attività attuale */
+.timeline-dot.pulse {
+  box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.6);
+  animation: softPulse 2.2s infinite;
+}
+
+@keyframes softPulse {
+  0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5); }
+  70% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+.timeline-content {
+  padding: 1rem 1.2rem;
+  border-radius: var(--border-radius, 8px);
+  background: rgba(128, 128, 128, 0.05);
+  border: 1px solid transparent;
+  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.2s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  border-color: var(--border-color, rgba(128, 128, 128, 0.3));
+  background: rgba(128, 128, 128, 0.08);
+  transform: translateX(4px);
+}
+
+.timeline-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.timeline-period {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-color, #3b82f6);
+}
+
+.timeline-badge.current {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 99px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.timeline-role {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0.2rem 0;
+  color: var(--text-primary);
+}
+
+.timeline-company {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.timeline-desc {
+  padding-left: 1.15rem;
+  margin: 0 0 0.85rem 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.timeline-desc li {
+  margin-bottom: 0.3rem;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.mini-tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  background: rgba(128, 128, 128, 0.12);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* SIDEBAR DESTRA */
+.skills-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.box-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-color, rgba(128, 128, 128, 0.25));
+  color: var(--text-primary);
+}
+
+.skill-group {
+  margin-bottom: 1.25rem;
+}
+
+.skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.group-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+}
+
+.badges-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-badge {
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  background: rgba(128, 128, 128, 0.1);
+  border: 1px solid var(--border-color, rgba(128, 128, 128, 0.25));
+  color: var(--text-primary);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-badge:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-color, #3b82f6);
+}
+
+/* Certificazioni */
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.cert-icon {
+  min-width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--accent-color, #3b82f6);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-info strong {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.cert-info span {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+/* Adattamento specifico per il tema Windows 98 */
+:host-context(body.theme-win98) .card-box {
+  background: #c0c0c0;
+  border-radius: 0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  box-shadow: 2px 2px 0px #000000;
+  color: #000000;
+}
+
+:host-context(body.theme-win98) .tab-btn,
+:host-context(body.theme-win98) .skill-badge {
+  background: #c0c0c0;
+  color: #000000;
+  border-radius: 0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+}
+
+:host-context(body.theme-win98) .tab-btn.active {
+  background: #000080;
+  color: #ffffff;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+:host-context(body.theme-win98) .timeline-content {
+  background: #dcdcdc;
+  border-radius: 0;
+  border: 1px solid #808080;
+}
+
+:host-context(body.theme-win98) .timeline-role,
+:host-context(body.theme-win98) .box-title,
+:host-context(body.theme-win98) .cert-info strong {
+  color: #000000;
+}
+
+:host-context(body.theme-win98) .timeline-company,
+:host-context(body.theme-win98) .timeline-desc,
+:host-context(body.theme-win98) .group-title,
+:host-context(body.theme-win98) .cert-info span {
+  color: #222222;
+}
+
+/* Responsive Mobile e Tablet */
+@media (max-width: 900px) {
+  .cv-layout {
+    grid-template-columns: 1fr;
+  }
+}
+/* --- CORREZIONE COLORI PER DARK MODE & MATERIAL GLASS --- */
+
+/* Forziamo i testi principali e secondari a seguire rigorosamente le variabili del tema */
+.card-box, 
+.timeline-content {
+  color: var(--text-primary);
+}
+
+.timeline-role, 
+.box-title, 
+.cert-info strong,
+.section-title {
+  color: var(--text-primary);
+}
+
+.timeline-company, 
+.timeline-desc, 
+.group-title, 
+.cert-info span,
+.section-subtitle {
+  color: var(--text-secondary);
+}
+
+/* Eccezione controllata SOLO per Windows 98 dove i testi devono essere scuri sul grigio classico */
+:host-context(body.theme-win98) .card-box,
+:host-context(body.theme-win98) .timeline-content,
+:host-context(body.theme-win98) .timeline-role,
+:host-context(body.theme-win98) .box-title,
+:host-context(body.theme-win98) .cert-info strong {
+  color: #000000;
+}
+
+:host-context(body.theme-win98) .timeline-company,
+:host-context(body.theme-win98) .timeline-desc,
+:host-context(body.theme-win98) .group-title,
+:host-context(body.theme-win98) .cert-info span {
+  color: #222222;
+}
